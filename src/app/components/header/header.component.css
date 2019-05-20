@@ -1,0 +1,12 @@
+.mat-toolbar.mat-primary {
+  position: sticky;
+  z-index: 1;
+  top: 0;
+}
+
+.logout {
+  text-decoration: none;
+  color: #ffffff;
+  position: absolute;
+  right: 20px;
+}

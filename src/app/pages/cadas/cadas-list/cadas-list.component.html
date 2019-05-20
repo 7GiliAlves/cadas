@@ -1,0 +1,66 @@
+<mat-card>
+  <mat-card-content>
+    <form>
+      <mat-form-field class="example-full-width" appearance="outline">
+        <mat-label><mat-icon>school</mat-icon> Pesquisar pelo Nome</mat-label>
+        <input
+          matInput
+          type="text"
+          matTooltip="Pesquisar pelo Nome"
+          #cadasSearch="ngModel"
+          placeholder="Pesquisar pelo Nome"
+          [(ngModel)]="searchTerm"
+          name="search"
+          (keyup)="search($event)"
+        />
+        <button mat-button *ngIf="searchTerm; else suffix" matSuffix mat-icon-button aria-label="Clear" (click)="searchTerm=''">
+          <mat-icon>close</mat-icon>
+        </button>
+        <ng-template #suffix>
+          <mat-icon matSuffix>search</mat-icon>
+        </ng-template>
+
+      </mat-form-field>
+    </form>
+  </mat-card-content>
+</mat-card>
+
+<mat-nav-list class="item-container list-custom">
+
+  <div *ngIf="cadasSearch.dirty && searchTerm !== ''; else cadas">
+    <p class="title-custom">Resultado da Pesquisa</p>
+  </div>
+
+  <ng-template #cadas>
+    <p class="title-custom">Recentes</p>
+  </ng-template>
+
+  <mat-accordion class="toggle">
+    <app-cadas-item
+      *ngFor="let cadas of searchCadas"
+      [cadas]="cadas">
+    </app-cadas-item>
+  </mat-accordion>
+
+  <mat-card
+    class="text-custom"
+    *ngIf="cadasSearch.dirty && searchCadas?.length === 0">
+    <mat-card-header>
+      <p>Desculpe, nenhum resultado encontrado.</p>
+    </mat-card-header>
+    <mat-card-content>
+      <img class="mobile-img" src="../../../../assets/img/not-found.gif" />
+    </mat-card-content>
+  </mat-card>
+</mat-nav-list>
+
+<button
+  mat-fab
+  class="fab-bottom-right pulse"
+  matTooltip="Adicionar Novo Cadastro"
+  matTooltipPosition="left"
+  aria-label="Botão para adicionar um Novo Cadastro"
+  (click)="showDialog()"
+>
+  <mat-icon>add</mat-icon>
+</button>

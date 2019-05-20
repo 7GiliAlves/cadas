@@ -1,0 +1,43 @@
+<mat-expansion-panel>
+  <mat-expansion-panel-header>
+    <mat-panel-title matTooltip="{{cadas.nome}}" (click)="executeAction('selectCadas')">
+      {{ cadas.nome }}
+    </mat-panel-title>
+    <mat-panel-description class="mobile" matTooltip="{{cadas.numCaixa}}">
+      {{ 'Número da Caixa: ' + cadas.numCaixa +  ' ' }}
+    </mat-panel-description>
+  </mat-expansion-panel-header>
+
+  <ng-template matExpansionPanelContent>
+    <p class="format-text" matTooltip="{{cadas.nome}}">Nome: {{ cadas.nome }}</p>
+    <p class="format-text" matTooltip="{{cadas.dtNascimento}}">Data de Nascimento: {{ cadas.dtNascimento }}</p>
+    <p class="format-text" matTooltip="{{cadas.numCaixa}}">Número da Caixa: {{ cadas.numCaixa }}</p>
+    <p class="format-text" matTooltip="{{cadas.ordem}}">Ordem: {{ cadas.ordem }}</p>
+    <p class="format-text" matTooltip="{{cadas.observacao}}">Observação: {{ cadas.observacao }}</p>
+  </ng-template>
+
+  <mat-action-row>
+    <button mat-button
+            color="primary"
+            matTooltip="Editar Cadastro"
+            aria-label="Botão para atualizar um Cadastro"
+            matTooltipClass="editar-tooltip-blue"
+            class="editar-button"
+            (click)="showDialog(cadas)">
+      <mat-icon>edit</mat-icon>
+      <span>Editar</span>
+    </button>
+
+    <button mat-button
+            color="warn"
+            matTooltip="Apagar Cadastro"
+            aria-label="Botão para deletar um Cadastro"
+            matTooltipClass="deletar-tooltip-red"
+            class="remover-button"
+            (click)="openDialog(cadas)">
+      <mat-icon>delete</mat-icon>
+      <span>Remover</span>
+    </button>
+  </mat-action-row>
+
+</mat-expansion-panel>

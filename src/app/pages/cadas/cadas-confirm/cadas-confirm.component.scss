@@ -1,0 +1,24 @@
+mat-dialog-content {
+  width: 450px;
+  height: 350px;
+  overflow: hidden;
+
+  img {
+    max-height: 200px;
+    display: flex;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+.mat-dialog-title {
+  text-align: center;
+  color: #7e7e7e;
+  font-size: 1.2rem;
+}
+
+.p-text {
+  margin-top: 26px;
+  text-align: center;
+  font-size: 1.3rem;
+  color: #ff0000;
+}

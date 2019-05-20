@@ -1,0 +1,93 @@
+/* You can add global styles to this file, and also import other style files */
+
+html, body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  background: #f5f7fa;
+}
+
+.fab-bottom-right {
+  position: fixed !important;
+  bottom: 2%;
+  right: 2.5%;
+}
+
+.spinner {
+  margin:30px auto 0 auto;
+}
+
+.full-width {
+  margin-top: 5%;
+  width: 100%;
+}
+
+.title-width {
+  width: 50%;
+}
+
+.item-container {
+  margin: 0px auto 0 auto;
+  width: 80%;
+  padding-bottom: 80px;
+}
+
+.remover-button {
+  margin-top: 16px;
+}
+.deletar-tooltip-red {
+  background: #b71c1c;
+}
+
+.editar-button {
+  margin-top: 16px;
+}
+
+.editar-tooltip-blue{
+background: #3f51b5;
+}
+
+.format-text{
+  font-family: Roboto,"Helvetica Neue",sans-serif;
+}
+
+.pulse {
+  animation: pulse 0.9s infinite;
+  margin: 0 auto;
+  display: table;
+  margin-top: 50px;
+  animation-direction: alternate;
+  -webkit-animation-name: pulse;
+  animation-name: pulse;
+}
+
+@-webkit-keyframes pulse {
+  0% {
+    -webkit-transform: scale(.9);
+  }
+  70% {
+    -webkit-transform: scale(1);
+    -webkit-box-shadow: 0 0 0 50px rgba(69, 152, 27, 0);
+  }
+  100% {
+    -webkit-transform: scale(.9);
+    -webkit-box-shadow:  0 0 0 0 rgba(69, 152, 27, 0);
+  }
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(.9);
+  }
+  70% {
+    transform: scale(1);
+    box-shadow: 0 0 0 50px rgba(69, 152, 27, 0);
+  }
+    100% {
+    transform: scale(.9);
+    box-shadow: 0 0 0 0 rgba(69, 152, 27, 0);
+  }
+}

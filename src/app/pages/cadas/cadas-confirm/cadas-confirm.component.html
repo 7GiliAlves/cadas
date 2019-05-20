@@ -1,0 +1,34 @@
+<mat-dialog-content>
+  <img src="./../../../../assets/img/caution.jpg" alt="atencao">
+  <h1 mat-dialog-title>DESEJA APAGAR O REGISTRO DE
+    <span style="font-size:1.2rem; color: #042fee;">{{cadas.nome}}?</span>
+  </h1>
+  <hr>
+
+  <p class="p-text">Atenção!!! Esta ação não poderar ser desfeita!</p>
+
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <button
+    mat-button
+    color="primary"
+    matTooltip="Cancelar Operação"
+    aria-label="Botão de cancelar"
+    cdkFocusInitial
+    matTooltipClass="editar-tooltip-blue"
+    mat-dialog-close
+  >
+    Cancelar
+  </button>
+  <button
+    mat-button
+    color="warn"
+    matTooltip="Apagar Cadastro"
+    aria-label="Botão de salvar"
+    matTooltipClass="deletar-tooltip-red"
+    [mat-dialog-close]="cadas"
+    (click)="onDelete(cadas)"
+  >
+    Remover
+  </button>
+</mat-dialog-actions>

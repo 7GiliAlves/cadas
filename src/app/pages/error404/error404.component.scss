@@ -1,0 +1,17 @@
+div {
+  width: 100%;
+  height: 100vh;
+  background: url('../../../assets/img/404.png') no-repeat bottom center;
+  background-position: 30% 45%;
+  background-size: cover;
+}
+
+button {
+  position: absolute;
+  bottom: 50px;
+  left: 50px;
+}
+.mat-button.mat-primary, .mat-icon-button.mat-primary, .mat-fab.mat-primary {
+  color: #3f51b5;
+  background-color: #fffbdf;
+}

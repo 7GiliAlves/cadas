@@ -1,0 +1,89 @@
+<h1 mat-dialog-title>{{ dialogTitle | uppercase }}</h1>
+
+<mat-dialog-content>
+  <form #form="ngForm">
+    <mat-form-field hintLabel="Max. 30 caracteres" class="title-width" >
+      <mat-label>Nome</mat-label>
+      <input  matInput
+              placeholder="Nome"
+              type="text"
+              [(ngModel)]="cadas.nome"
+              required minlength="3" maxlength="30"
+              #inputNome
+              name="nomeControl"
+              #nomeControl="ngModel">
+      <mat-hint align="end">{{inputNome.value?.length || 0}}/30</mat-hint>
+    </mat-form-field>
+
+    <mat-form-field class="title-width">
+      <mat-label>Data de Nascimento</mat-label>
+      <input  matInput
+              placeholder="Data de Nascimento"
+              type="text" mask="00/00/0000"
+              [dropSpecialCharacters]="false"
+              [(ngModel)]="cadas.dtNascimento"
+              required
+              name="dtNascimentoControl"
+              #dtNascimentoControl="ngModel">
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Número Caixa</mat-label>
+      <input  matInput
+              placeholder="Número da Caixa"
+              type="text"
+              [(ngModel)]="cadas.numCaixa"
+              required
+              name="numCaixaControl"
+              #numCaixaControl="ngModel">
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Ordem</mat-label>
+      <input  matInput
+              placeholder="Ordem"
+              type="text"
+              [(ngModel)]="cadas.ordem"
+              required
+              name="ordemControl"
+              #ordemControl="ngModel">
+    </mat-form-field>
+
+    <mat-form-field hintLabel="Max. 1000 caracteres" class="full-width">
+      <mat-label>Observação</mat-label>
+      <textarea class="textarea-form"
+                matInput
+                rows="10"
+                placeholder="Observação"
+                [(ngModel)]="cadas.observacao"
+                minlength="0" maxlength="1000"
+                #inputText
+                name="obsControl"
+                #obsControl="ngModel">
+      </textarea>
+      <mat-hint align="end">{{inputText.value?.length || 0}}/1000</mat-hint>
+    </mat-form-field>
+  </form>
+  </mat-dialog-content>
+
+  <mat-dialog-actions align="end">
+    <button mat-button
+            color="warn"
+            matTooltip="Cancelar Operação"
+            aria-label="Botão de cancelar"
+            matTooltipClass="deletar-tooltip-red"
+            mat-dialog-close>
+      Cancelar
+    </button>
+    <button mat-button
+            color="primary"
+            matTooltip="{{ buttonTitle }} Cadastro"
+            aria-label="Botão de salvar"
+            matTooltipClass="editar-tooltip-blue"
+            [disabled]="form.invalid"
+            [mat-dialog-close]="form.valid"
+            (click)="onSave()"
+            type="submit">
+      {{ buttonTitle }}
+    </button>
+  </mat-dialog-actions>
